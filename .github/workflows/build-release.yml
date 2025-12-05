@@ -116,25 +116,25 @@ jobs:
       run: |
         mkdir -p rom
         if [[ "${{ github.event.inputs.device }}" == cetron-ct3003-ubootmod ]]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "cmcc-a10-ubootmod" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "h3c-magic-nx30-pro" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "imou-lc-hx3001" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "nokia-ea0326gmp" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "qihoo-360t7" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "clx-s20p" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "netcore-n60-pro" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "netcore-n60-pro-512rom" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         elif [ "${{ github.event.inputs.device }}" = "jdcloud-re-cp-03" ]; then
-          cp -a openwrt/bin/targets/mediatek/*/*.sysupgrade.bin rom/
+          cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
         fi
 
     - name: Upload artifacts
