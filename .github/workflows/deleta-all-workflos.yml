@@ -2,10 +2,8 @@ name: 🗑️ 清理工作
 
 on:
   workflow_dispatch:
-  workflow_run:       # 在 Build workflow 完成后触发
-    workflows: ["💻 固件编译"]
-    types:
-      - completed
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   cleanup:
