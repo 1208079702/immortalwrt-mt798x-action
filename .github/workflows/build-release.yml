@@ -136,50 +136,19 @@ jobs:
       working-directory: /builder
       run: |
         mkdir -p rom
-        case "${{ github.event.inputs.device }}" in
-          cetron-ct3003)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          cmcc-a10)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          h3c-magic-nx30-pro)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          imou-lc-hx3001)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          nokia-ea0326gmp)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          qihoo-360t7)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          newland-nl-wr8103)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          umi-uax3000e)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          clx-s20p)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          netcore-n60-pro)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          netcore-n60-pro-512rom)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          xiaomi-redmi-router-ax6000)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-            xiaomi-redmi-router-ax6000-512rom)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-          jdcloud-re-cp-03)
-              cp -a openwrt/bin/targets/mediatek/*/*-sysupgrade.bin rom/
-              ;;
-        esac
+        
+        # 自动查找并复制所有 sysupgrade 固件
+        find openwrt/bin/targets -name "*sysupgrade.bin" -type f -exec cp -v {} rom/ \;
+        
+        # 验证
+        if [ ! -f rom/*-sysupgrade.bin ]; then
+          echo "❌ 固件复制失败，实际文件结构："
+          find openwrt/bin -type f -name "*.bin"
+          exit 1
+        fi
+        
+        echo "✅ 成功复制固件："
+        ls -lh rom/
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
