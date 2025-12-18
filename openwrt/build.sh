@@ -283,7 +283,8 @@ curl -s "$mirror/openwrt/24-config-general" >> .config
 [ "$ENABLE_SAMBA4" = "y" ] && curl -s $mirror/openwrt/generic/config-samba4 >> .config
     
 # Toolchain Cache
-if [ "$BUILD_FAST" = "y" ]; then
+if [ "$BUILD_FAST" = "y" ] && false; then
+#if [ "$BUILD_FAST" = "y" ]; then
     echo -e "\n${GREEN_COLOR}Download Toolchain ...${RES}"
     [ -f /etc/os-release ] && source /etc/os-release
     if [ "$(whoami)" = "zhao" ]; then
