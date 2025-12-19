@@ -161,8 +161,8 @@ rm -rf openwrt
 
 # openwrt - releases
 [ "$(whoami)" = "runner" ] && group "source code"
-#git clone -b openwrt-24.10-6.6 --single-branch --filter=blob:none https://github.com/dailook/immortalwrt-mt798x-6.6.git openwrt
-git clone -b openwrt-24.10-6.6 --single-branch --filter=blob:none https://github.com/padavanonly/immortalwrt-mt798x-24.10.git openwrt
+git clone -b openwrt-24.10-6.6 --single-branch --filter=blob:none https://github.com/dailook/immortalwrt-mt798x-6.6.git openwrt
+#git clone -b openwrt-24.10-6.6 --single-branch --filter=blob:none https://github.com/padavanonly/immortalwrt-mt798x-24.10.git openwrt
 if [ -d openwrt ]; then
     cd openwrt
     curl -Os $mirror/openwrt/patch/key.tar.gz && tar zxf key.tar.gz && rm -f key.tar.gz
