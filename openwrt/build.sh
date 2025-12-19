@@ -24,7 +24,7 @@ endgroup() {
 export mirror=http://127.0.0.1:8080
 
 # private gitea
-export gitea="gitea.kejizero.xyz"
+export gitea="github.com"
 
 # github mirror
 export github="github.com"
