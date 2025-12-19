@@ -18,12 +18,12 @@ fi
 
 # Docker
 rm -rf feeds/luci/applications/luci-app-dockerman
-git clone https://$gitea/zhao/luci-app-dockerman -b nft feeds/luci/applications/luci-app-dockerman
+git clone https://$gitea/lisaac/luci-app-dockerman -b nft feeds/luci/applications/luci-app-dockerman
 rm -rf feeds/packages/utils/{docker,dockerd,containerd,runc}
-git clone https://$gitea/zhao/packages_utils_docker feeds/packages/utils/docker
-git clone https://$gitea/zhao/packages_utils_dockerd feeds/packages/utils/dockerd
-git clone https://$gitea/zhao/packages_utils_containerd feeds/packages/utils/containerd
-git clone https://$gitea/zhao/packages_utils_runc feeds/packages/utils/runc
+git clone https://$gitea/lisaac/packages_utils_docker feeds/packages/utils/docker
+git clone https://$gitea/lisaac/packages_utils_dockerd feeds/packages/utils/dockerd
+git clone https://$gitea/lisaac/packages_utils_containerd feeds/packages/utils/containerd
+git clone https://$gitea/lisaac/packages_utils_runc feeds/packages/utils/runc
 
 # TTYD
 sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
